@@ -23,8 +23,9 @@ async function buscarItens(liga, categoria) {
 }
 
 function encontrarAssinatura(nomeAlvo, listaFiltrada) {
+    let listaNomes = todasAsBestasCache.map(e => e.name)
     const nome = nomeAlvo.toLowerCase().replace(/[,']/g, '');
-    const outrosNomes = listaFiltrada
+    const outrosNomes = listaNomes
         .map(n => n.toLowerCase().replace(/[,']/g, ''))
         .filter(n => n !== nome);
 
@@ -103,7 +104,7 @@ function renderizarInterface(bestas) {
             <td style="color: #4db8ff;">${besta.name}</td>
             <td><span class="regex-badge" title="Clique para copiar" onclick="navigator.clipboard.writeText('${idUnico}')">${idUnico}</span></td>
             <td style="color: #ffd700;">
-                ${besta.history?.[0] ? besta.history?.[0].toFixed(1) : 0} 
+                ${besta.min ? besta.min.toFixed(1) : 0} 
             </td>
         `;
         tbody.appendChild(tr);
@@ -121,7 +122,7 @@ async function main() {
   const itens = await buscarItens(liga.name, 'beast');
   if (!itens) return console.log('Erro nos itens');
 
-  todasAsBestasCache = itens.sort((a, b) => (b.history?.[0] || 0) - (a.history?.[0] || 0));
+  todasAsBestasCache = itens.sort((a, b) => (b.min || 0) - (a.min || 0));
 
   document.getElementById('min-chaos').addEventListener('blur', executarFiltro);
 
@@ -131,7 +132,7 @@ async function main() {
 function executarFiltro() {
   const minChaos = parseInt(document.getElementById('min-chaos').value) || 0;
 
-  const itensFiltrados = todasAsBestasCache.filter(item => (item.history?.[0] || 0) >= minChaos);
+  const itensFiltrados = todasAsBestasCache.filter(item => (item.min || 0) >= minChaos);
 
   document.getElementById('regex-blocks').innerHTML = '';
   document.getElementById('bestiary-body').innerHTML = '';
@@ -142,6 +143,5 @@ function executarFiltro() {
   }
 
   renderizarInterface(itensFiltrados);
-  console.log(`Filtro aplicado: ${itensFiltrados.length} bestas acima de ${minChaos}c`);
 }
 main();
