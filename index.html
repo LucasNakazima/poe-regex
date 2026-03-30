@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PoE Bestiary Regex Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="bestiary-container">
+    <h1>Gerador de Regex - Bestiário</h1>
+    <div id="regex-blocks"></div>
+
+    <div class="filter-section">
+      <label for="min-chaos">Valor Mínimo (Chaos):</label>
+      <input type="number" id="min-chaos" value="10" min="0">
+      <!-- <button id="btn-filtrar">Filtrar e Gerar Regex</button> -->
+    </div>
+
+
+    <div class="table-wrapper">
+      <table class="bestiary-table">
+        <thead>
+          <tr>
+            <th>Ícone</th>
+            <th>Nome da Besta</th>
+            <th>Regex (Único)</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody id="bestiary-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

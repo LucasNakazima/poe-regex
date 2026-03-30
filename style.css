@@ -1,0 +1,211 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #060606; 
+    border-left: 1px solid #3d3424;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #3d3424; 
+    border-radius: 2px;
+    border: 1px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a5824a;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3d3424 #060606;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+body {
+    background-color: #060606;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#bestiary-container {
+    width: 95%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#regex-blocks {
+    background: #121212;
+    border: 1px solid #3d3424;
+    padding: 20px;
+    border-radius: 4px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px #000;
+}
+
+#regex-blocks h3 {
+    color: #a5824a;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #3d3424;
+    padding-bottom: 10px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.bestiary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #141414;
+    border: 1px solid #222;
+}
+
+.bestiary-table th {
+    background: #1a1a1a;
+    color: #a5824a;
+    padding: 15px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #3d3424;
+}
+
+.bestiary-table td {
+    padding: 12px;
+    border-bottom: 1px solid #222;
+    vertical-align: middle;
+}
+
+.bestiary-table tr:hover {
+    background: #1d1d1d;
+}
+
+.beast-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #3d3424;
+    background: #000;
+    display: block;
+}
+
+
+.regex-badge {
+    background: #1a2e1a;
+    color: #88ff88;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #2d4d2d;
+    transition: 0.2s;
+}
+
+.regex-badge:hover {
+    background: #2d4d2d;
+    color: #fff;
+}
+
+
+
+.block-container {
+    background: #1a1a1a;
+    border-left: 4px solid #a5824a;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.copy-btn {
+    background: #a5824a;
+    color: #000;
+    border: none;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background: #cfab6e;
+}
+
+.filter-section {
+    background: #1a1a1a;
+    padding: 15px;
+    border: 1px solid #3d3424;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 4px;
+}
+
+.filter-section input {
+    background: #000;
+    border: 1px solid #a5824a;
+    color: #ffd700;
+    padding: 8px;
+    width: 80px;
+    outline: none;
+}
+
+#btn-filtrar {
+    background: #a5824a;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#btn-filtrar:hover {
+    background: #cfab6e;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #regex-blocks {
+        max-height: none;
+    }
+
+    .bestiary-table th, .bestiary-table td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .beast-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
